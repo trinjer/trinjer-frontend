@@ -1,3 +1,10 @@
-<h1>Hello, it`s first step to Trinjer project</h1>
-<router-outlet>
-</router-outlet>
+<md-toolbar>
+	<h1>Trinjer</h1>
+</md-toolbar>
+<md-sidenav-container>
+	<md-sidenav [opened]="false"></md-sidenav>
+	<main class="main-container">
+		<router-outlet>
+		</router-outlet>
+	</main>
+</md-sidenav-container>
