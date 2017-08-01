@@ -5,15 +5,14 @@ import {AppComponent} from './shared/app-component/app.component';
 import {AppRoutingModule} from './routing/routing.module';
 import {RouterModule} from '@angular/router';
 import {UserModule} from './user/user.module';
-import {AngularMaterialModule} from './shared/angular-material.module';
+import {AngularMaterialModule} from './angular-material/angular-material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
-import {FooterComponent} from './shared/footer/footer.component';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
 	declarations: [
-		AppComponent,
-		FooterComponent
+		AppComponent
 	],
 	imports: [
 		BrowserModule,
@@ -23,6 +22,7 @@ import {FooterComponent} from './shared/footer/footer.component';
 		// Custom modules
 		UserModule,
 		AngularMaterialModule,
+		CoreModule,
 
 		AppRoutingModule
 	],

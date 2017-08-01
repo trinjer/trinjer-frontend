@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {UserStore} from './shared/services/user.store';
-import {AngularMaterialModule} from '../shared/angular-material.module';
+import {AngularMaterialModule} from '../angular-material/angular-material.module';
 import {LoginComponent} from './authentication/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegistrationComponent } from './authentication/registration/registration.component';
