@@ -1,0 +1,20 @@
+@import "variables"
+
+.user-form
+	max-width: 350px
+	width: 100%
+	margin: 0 auto
+	&__fields
+		display: flex
+		flex-direction: row
+
+@media screen and (min-width: 768px)
+	.user-form__fields
+		.user-form__field
+			&:not(:last-child)
+				margin-right: 1rem
+
+@media screen and (max-width: 767px)
+	.user-form
+		&__fields
+			flex-direction: column
