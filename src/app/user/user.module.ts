@@ -2,21 +2,23 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {UserStore} from './shared/services/user.store';
 import {AngularMaterialModule} from '../angular-material/angular-material.module';
-import {LoginComponent} from './authentication/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { RegistrationComponent } from './authentication/registration/registration.component';
+import {LoginModule} from './authentication/login/login.module';
+import {RegistrationModule} from './authentication/registration/registration.module';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		AngularMaterialModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		LoginModule,
+		RegistrationModule
 	],
 	providers: [
 		UserStore
 	],
-	declarations: [LoginComponent, RegistrationComponent]
+	declarations: []
 })
 export class UserModule {
 }
