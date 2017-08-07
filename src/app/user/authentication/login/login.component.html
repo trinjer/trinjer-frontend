@@ -1,14 +1,14 @@
 <div class="container">
-	<form class="user-form" (submit)="onSubmit($event)">
+	<form class="user-form" [formGroup]="form" (submit)="onSubmit($event)">
 		<h2>Login</h2>
 		<div class="user-form__field">
 			<md-input-container class="full-width">
-				<input mdInput placeholder="Email">
+				<input mdInput formControlName="login" placeholder="Email">
 			</md-input-container>
 		</div>
 		<div class="user-form__field">
 			<md-input-container class="full-width">
-				<input mdInput placeholder="Password" type="password">
+				<input mdInput formControlName="password" placeholder="Password" type="password">
 			</md-input-container>
 		</div>
 		<button md-raised-button color="primary">Login</button>
