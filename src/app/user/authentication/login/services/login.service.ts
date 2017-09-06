@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 import {ErrorFactory} from '../errors/error.factory';
 import {TokenModel} from '../models/token.model';
+import {MapperFactory} from '../../../../serialize-extensions/mapper.factory';
 
 @Injectable()
 export class LoginService {
@@ -20,15 +21,7 @@ export class LoginService {
 		const errorHandler = (e: Response) => ErrorObservable.create(ErrorFactory.getErrorByCode(e.status));
 
 		return this.http.post(HttpConfig.LOGIN, credentials)
-			.map(tokenMapper)
+			.map(MapperFactory.getFromResponse(TokenModel))
 			.catch(errorHandler);
 	}
-}
-
-export function tokenMapper(response: Response): TokenModel {
-	const json = response.json();
-	const token = new TokenModel();
-	token.token = json['jwtToken'];
-	token.userId = json['userId'];
-	return token;
 }
