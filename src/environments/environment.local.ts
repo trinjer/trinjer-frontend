@@ -7,5 +7,3 @@ export const environment = {
 	type: EnvironmentType.LOCAL,
 	baseUrl: 'http://localhost:8080'
 };
-
-console.log('Local build!');

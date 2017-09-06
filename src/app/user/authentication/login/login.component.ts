@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 	onSubmit(): void {
 		if (this.form.valid) {
 			this.loginService.login(this.credentials).subscribe(
-				() => console.log('Success authenticate!'),
+				token => console.log(`Success authentication with tokens: ${JSON.stringify(token)}`),
 				(error: Error) => {
 					if (error.name === ErrorTypes.AUTHORIZATION) {
 						console.log('Authentication failed!');
