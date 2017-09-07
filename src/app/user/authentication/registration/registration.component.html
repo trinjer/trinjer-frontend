@@ -1,26 +1,26 @@
 <div class="container">
-	<form class="user-form" (submit)="onSubmit($event)">
+	<form class="user-form" [formGroup]="formGroup" (submit)="onSubmit($event)">
 		<h2>Registration</h2>
 		<div class="user-form__fields">
 			<div class="user-form__field">
 				<md-input-container class="full-width">
-					<input mdInput placeholder="First Name">
+					<input mdInput formControlName="firstName" placeholder="First Name">
 				</md-input-container>
 			</div>
 			<div class="user-form__field">
 				<md-input-container class="full-width">
-					<input mdInput placeholder="Last Name">
+					<input mdInput formControlName="lastName" placeholder="Last Name">
 				</md-input-container>
 			</div>
 		</div>
 		<div class="user-form__field">
 			<md-input-container class="full-width">
-				<input mdInput placeholder="Email">
+				<input mdInput formControlName="email" placeholder="Email">
 			</md-input-container>
 		</div>
 		<div class="user-form__field">
 			<md-input-container class="full-width">
-				<input mdInput placeholder="Password" type="password">
+				<input mdInput formControlName="password" placeholder="Password" type="password">
 			</md-input-container>
 		</div>
 		<button md-raised-button color="primary">Register</button>
