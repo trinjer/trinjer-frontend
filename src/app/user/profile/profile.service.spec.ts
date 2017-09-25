@@ -4,7 +4,7 @@ import {ProfileService} from './profile.service';
 import {UserModel} from '../models/user.model';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
-import {Http} from '@angular/http';
+import {Http, Response, ResponseOptions} from '@angular/http';
 
 const expectedUserInfo = new UserModel();
 expectedUserInfo.email = 'test@email.com';
@@ -12,15 +12,22 @@ expectedUserInfo.firstName = 'test first name';
 expectedUserInfo.lastName = 'test last name';
 
 class MockHttp {
-	get (): Observable<UserModel> {
-		return of(expectedUserInfo);
+	get (): Observable<Response> {
+		const responseOptions = new ResponseOptions({
+			body: expectedUserInfo
+		});
+		const response = new Response(responseOptions);
+		return of(response);
 	}
 }
 
 describe('ProfileService', () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [ProfileService]
+			providers: [
+				ProfileService,
+				{provide: Http, useClass: MockHttp}
+			]
 		});
 	});
 
@@ -34,5 +41,6 @@ describe('ProfileService', () => {
 			const userId = 12;
 			service.loadUserInfo(userId).subscribe(userInfo => expect(userInfo).toEqual(expectedUserInfo));
 			expect(http.get).toHaveBeenCalledTimes(1);
-		}));
+		})
+	);
 });

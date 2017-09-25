@@ -5,7 +5,7 @@ import 'rxjs/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import {RegistrationUserModel} from '../models/registration-user.model';
 import {Http} from '@angular/http';
-import {HttpConfig} from '../../http.config';
+import {HttpConfig} from '../../../../http.config';
 import {serialize} from 'serialize-ts';
 import {LoginService} from '../../login/services/login.service';
 

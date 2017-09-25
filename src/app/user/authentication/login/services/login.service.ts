@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {HttpConfig} from '../../http.config';
+import {HttpConfig} from '../../../../http.config';
 import {Credentials} from '../models/credentials.interface';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
