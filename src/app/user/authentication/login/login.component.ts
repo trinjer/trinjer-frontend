@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Credentials} from './models/credentials.interface';
-import {LoginService} from './services/login.service';
-import {ErrorTypes} from '../errors/error-types';
 import {Store} from '@ngrx/store';
 import {State} from '../../reducer';
+import {LoginAction} from '../../actions/login.action';
 
 @Component({
 	selector: 'app-login',
@@ -15,9 +14,7 @@ export class LoginComponent implements OnInit {
 	form: FormGroup;
 
 	constructor(private formBuilder: FormBuilder,
-				private store: Store<State>,
-				private loginService: LoginService) {
-		store.select('user').subscribe(console.log);
+				private store: Store<State>) {
 	}
 
 	ngOnInit() {
@@ -29,14 +26,7 @@ export class LoginComponent implements OnInit {
 
 	onSubmit(): void {
 		if (this.form.valid) {
-			this.loginService.login(this.credentials).subscribe(
-				token => console.log(`Success authentication with tokens: ${JSON.stringify(token)}`),
-				(error: Error) => {
-					if (error.name === ErrorTypes.AUTHORIZATION) {
-						console.log('Authentication failed!');
-					}
-				}
-			);
+			this.store.dispatch(new LoginAction(this.credentials))
 		}
 	}
 

@@ -10,6 +10,8 @@ import 'hammerjs';
 import {CoreModule} from './core/core.module';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './user/reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {UserEffects} from './user/user.effects';
 
 @NgModule({
 	declarations: [
@@ -20,6 +22,7 @@ import {reducers} from './user/reducer';
 		RouterModule,
 		BrowserAnimationsModule,
 		StoreModule.forRoot(reducers),
+		EffectsModule.forRoot([UserEffects]),
 
 		// Custom modules
 		UserModule,
@@ -28,7 +31,9 @@ import {reducers} from './user/reducer';
 
 		AppRoutingModule
 	],
-	providers: [],
+	providers: [
+		UserEffects
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

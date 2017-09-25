@@ -9,7 +9,11 @@ export interface State {
 export function reducer(state: UserState  = initialState, action: AllUserActions): UserState {
 	switch (action.type) {
 		case UserActionType.TOKEN_LOADED:
-			return {...state, token: action.payload};
+			return {...state, token: action.payload, isLoginProcessing: false};
+		case UserActionType.LOGIN:
+			return {...state, isLoginProcessing: true};
+		case UserActionType.LOGIN_FAILED:
+			return {...state, isLoginProcessing: false, loginError: action.payload};
 		default:
 			return state;
 	}
