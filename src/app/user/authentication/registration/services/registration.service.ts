@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {TokenModel} from '../../login/models/token.model';
+import {TokenModel} from '../../../models/token.model';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/operator/map';
 import 'rxjs/add/operator/mergeMap';

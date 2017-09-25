@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Credentials} from './models/credentials.interface';
 import {LoginService} from './services/login.service';
 import {ErrorTypes} from '../errors/error-types';
+import {Store} from '@ngrx/store';
+import {State} from '../../reducer';
 
 @Component({
 	selector: 'app-login',
@@ -12,7 +14,10 @@ import {ErrorTypes} from '../errors/error-types';
 export class LoginComponent implements OnInit {
 	form: FormGroup;
 
-	constructor(private formBuilder: FormBuilder, private loginService: LoginService) {
+	constructor(private formBuilder: FormBuilder,
+				private store: Store<State>,
+				private loginService: LoginService) {
+		store.select('user').subscribe(console.log);
 	}
 
 	ngOnInit() {

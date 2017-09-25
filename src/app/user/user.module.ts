@@ -9,11 +9,11 @@ import {RegistrationModule} from './authentication/registration/registration.mod
 		CommonModule,
 		FormsModule,
 		ReactiveFormsModule,
+
 		LoginModule,
 		RegistrationModule
 	],
-	providers: [
-	],
+	providers: [],
 	declarations: []
 })
 export class UserModule {
